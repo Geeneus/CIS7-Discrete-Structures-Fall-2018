@@ -1,5 +1,6 @@
 
 
+
 ## Part 1
 
 ```
@@ -99,5 +100,41 @@ Assuming: p → (q ∧ r), s → r , r → p
 Prove: s → q.
 ```
 ```
+Assuming s is true:
+In (s → r), r is also true,
+In (r → p), p is also true,
+In (p → (q ∧ r)), both q and r are true,
+Which means (s → q) is true because (true → true) is true.
 
+Assuming s is false:
+(s → q) would always be true.
+Check for contradictions:
+In (p → (q ∧ r)), p must be false,
+In (r → p), r must be false,
+In (s → r), s must be false.
+No Contradictions.
+
+Assuming q is true:
+(s → q) would always be true.
+No contradictions.
+
+Assuming q is false:
+In (p → (q ∧ r)), p is also false,
+In (r → p), r is also false,
+In (s → r), s is also false,
+which means (s → q) is true because (false → false) is true.
 ```
+```
+(s → q) is true in all cases with no contradictions so (s → q) is true.
+```
+-- --
+```
+Assuming: ¬(r ∨ s), ¬p → s, p → q. 
+Prove: q
+```
+```
+In ¬(r ∨ s), both r and s are false.
+In (¬p → s), p is true,
+In (p → q), q is true.
+```
+
