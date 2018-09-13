@@ -1,4 +1,5 @@
 
+
 ## Part 1
 
 ```
@@ -47,3 +48,31 @@ Use a truth table to determine whether this is a tautology, contradiction, or ne
 
 This is neither a tautology or a contradiction.
 -- --
+## Part 3
+```
+For each of the following pairs of propositions, show that the
+two propositions are logically equivalent by finding a chain of equivalences from one
+to the other. State which definition or law of logic justifies each equivalence in the
+chain.
+```
+-- --
+```
+ (p ∧ q) → r , p → (q → r )
+ ```
+
+```
+(p ∧ q)' v r <=> p' v (q' v r) Implication (x3)  
+p' v q' v r <=> p' v (q' v r) De Morgan's Law
+p' v q' v r <=> p' v q' v r Associative 
+```
+ -- --
+ ```
+ (q ∨ r) → p, (q → p) ∧ (r → p)
+ ```
+ ```
+ (q v r)' v p <=> (q' v p) ^ (r' v p) Implication (x3)
+ (q' ^ r') v p <=> (q' v p) ^ (r' v p) De Morgan's Law
+ (q' v p) ^ (r' v p) <=> (q' v p) ^ (r' v p) Distributive
+ ```
+ -- --
+ ## Part 4
