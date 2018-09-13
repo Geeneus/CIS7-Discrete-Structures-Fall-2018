@@ -21,9 +21,10 @@ Translate into Propositional Logic:
 -- --
 
 ## Part 2
-
-`Use a truth table to determine whether this is a tautology, contradiction, or neither:  (¬B → ¬A) → ((¬B → A) → B)`  
-
+```
+Use a truth table to determine whether this is a tautology, contradiction, or neither:  
+(¬B → ¬A) → ((¬B → A) → B)
+```
 | ¬B | ¬A | ¬B → ¬A | A | ¬B → A | B | (¬B → A) → B |
 |:--:|:--:|:-------:|:-:|:------:|:-:|:------------:|
 | T  | T  | T       | F | F      | F | T            |
@@ -33,8 +34,10 @@ Translate into Propositional Logic:
 
 This is neither a tautology or a contradiction.
 -- --
-`Use a truth table to determine whether this is a tautology, contradiction, or neither: ((A → B) ∧ (B → ¬A)) → A`
-
+```
+Use a truth table to determine whether this is a tautology, contradiction, or neither:  
+((A → B) ∧ (B → ¬A)) → A
+```
 | A | B | (A → B) | ¬A | (B → ¬A) | (A → B) ∧ (B → ¬A) | ((A → B) ∧ (B → ¬A)) → A |
 |:-:|:-:|:-------:|:--:|:--------:|:------------------:|:------------------------:|
 | T | T | T       | F  | F        | F                  |  T                       |
