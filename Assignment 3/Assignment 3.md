@@ -86,7 +86,7 @@ City(x) mean “x is a city,” Lives(x,y) mean “x lives in y.”
 Translate into English: 
 ∃x∀y∀z(City(x) ∧ Traveler(y) ∧ Lives(z,x)) → (Loves(y,x) ∧ ¬Loves(z,x))
 ```
-** There exists a city where all of the travelers love the city and everyone who lives there does not love the city.**
+**There exists a city where all of the travelers love the city and everyone who lives there does not love the city.**
 -- --
 ```
 Translate into Predicate Logic: 
