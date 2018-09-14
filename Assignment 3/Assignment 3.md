@@ -19,7 +19,7 @@ Translate into English: (M → H) ∧ (S → C)
 Translate into Propositional Logic:   
 "Mathematics is easy or camping is fun, as long as it is sunny and the homework is done."
 ```
-**(S ^ H) → (M ^ C)**
+**(S ^ H) → (M ∨ C)**
 -- --
 
 ## Part 2
@@ -27,14 +27,14 @@ Translate into Propositional Logic:
 Use a truth table to determine whether this is a tautology, contradiction, or neither:  
 (¬B → ¬A) → ((¬B → A) → B)
 ```
-| ¬B | ¬A | ¬B → ¬A | A | ¬B → A | B | (¬B → A) → B |
-|:--:|:--:|:-------:|:-:|:------:|:-:|:------------:|
-| T  | T  | T       | F | F      | F | T            |
-| T  | F  | F       | T | T      | F | F            |
-| F  | T  | T       | F | T      | T | T            |
-| F  | F  | T       | T | T      | T | T            |
+| ¬B | ¬A | ¬B → ¬A | A | ¬B → A | B | (¬B → A) → B | (¬B → ¬A) → ((¬B → A) → B) |
+|:--:|:--:|:-------:|:-:|:------:|:-:|:------------:|:---------------------------|
+| T  | T  | T       | F | F      | F | T            | T                          |
+| T  | F  | F       | T | T      | F | F            | T                          |
+| F  | T  | T       | F | T      | T | T            | T                          |
+| F  | F  | T       | T | T      | T | T            | T                          |
 
-This is neither a tautology or a contradiction.
+This is a tautology.
 -- --
 ```
 Use a truth table to determine whether this is a tautology, contradiction, or neither:  
@@ -62,18 +62,18 @@ chain.
  ```
 
 ```
-(p ∧ q)' v r <=> p' v (q' v r) Implication (x3)  
-p' v q' v r <=> p' v (q' v r) De Morgan's Law
-p' v q' v r <=> p' v q' v r Associative 
+(p ∧ q)' ∨ r <=> p' ∨ (q' ∨ r) Implication (x3)  
+p' ∨ q' ∨ r <=> p' ∨ (q' ∨ r) De Morgan's Law
+p' ∨ q' ∨ r <=> p' ∨ q' ∨ r Associative 
 ```
  -- --
  ```
  (q ∨ r) → p, (q → p) ∧ (r → p)
  ```
  ```
- (q v r)' v p <=> (q' v p) ^ (r' v p) Implication (x3)
- (q' ^ r') v p <=> (q' v p) ^ (r' v p) De Morgan's Law
- (q' v p) ^ (r' v p) <=> (q' v p) ^ (r' v p) Distributive
+ (q ∨ r)' ∨ p <=> (q' ∨ p) ^ (r' ∨ p) Implication (x3)
+ (q' ^ r') ∨ p <=> (q' ∨ p) ^ (r' ∨ p) De Morgan's Law
+ (q' ∨ p) ^ (r' ∨ p) <=> (q' ∨ p) ^ (r' ∨ p) Distributive
  ```
  -- --
 ## Part 4
@@ -101,27 +101,33 @@ Prove: s → q.
 ```
 ```
 Assuming s is true:
-In (s → r), r is also true,
-In (r → p), p is also true,
-In (p → (q ∧ r)), both q and r are true,
+In (s → r), r is also true, (Modus Ponen)
+In (r → p), p is also true, (Modus Ponen)
+In (p → (q ∧ r)), both q and r are true, (Modus Ponen)
 Which means (s → q) is true because (true → true) is true.
 
 Assuming s is false:
 (s → q) would always be true.
 Check for contradictions:
-In (p → (q ∧ r)), p must be false,
-In (r → p), r must be false,
-In (s → r), s must be false.
+In (p → (q ∧ r)), p must be false, (Modus Tollens)
+In (r → p), r must be false, (Modus Tollens)
+In (s → r), s must be false. (Modus Tollens)
 No Contradictions.
 
 Assuming q is true:
 (s → q) would always be true.
+Check for contradictions:
+In (p → (q ∧ r)), r can be either true or false,
+For the sake of finding a possibility with no contradictions, assume r is false:
+In (p → (q ∧ r)), p must be false, (Modus Tollens)
+In (s → r), s must be false, (Modus Tollens)
 No contradictions.
 
+
 Assuming q is false:
-In (p → (q ∧ r)), p is also false,
-In (r → p), r is also false,
-In (s → r), s is also false,
+In (p → (q ∧ r)), p is also false, (Modus Tollens)
+In (r → p), r is also false, (Modus Tollens)
+In (s → r), s is also false, (Modus Tollens)
 which means (s → q) is true because (false → false) is true.
 ```
 ```
@@ -133,8 +139,8 @@ Assuming: ¬(r ∨ s), ¬p → s, p → q.
 Prove: q
 ```
 ```
-In ¬(r ∨ s), both r and s are false.
-In (¬p → s), p is true,
-In (p → q), q is true.
+In ¬(r ∨ s), both r and s are false. 
+In (¬p → s), p is true, (Modus Ponen)
+In (p → q), q is true. (Modus Ponen)
 ```
 
