@@ -55,7 +55,7 @@ m + n + 1 = k
 2k
 * The result is even
 ```
---
+-- --
 ```
 The sum of an even integer and it's square is even
 ```
@@ -128,6 +128,7 @@ k^3 + 2k^2 + k + k^2 + 2k + 1 + 2k + 2
 * The whole thing is divisble by 3
 * k+1 is always divisible by 3
 ```
+-- --
 ```
 Prove that for n >= 1, 9^n − 1 is divisible by 8 for all non-negative integers 
 Hint: 4^(3+1) = 4 * 4^3 
