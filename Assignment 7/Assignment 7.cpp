@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -22,15 +23,15 @@ class HanoiTowers {
 
 		void printDisks() {
 			for (int i = 0; i < totalDisks; i++) {
-				cout << "Space " << i << " of tower 1: " << tower1[i] << " ";
+				cout << (tower1[i] == 0) ? "-" : to_string(tower1[i]);
 			} cout << "\n";
 
 			for (int i = 0; i < totalDisks; i++) {
-				cout << "Space " << i << " of tower 2: " << tower2[i] << " ";
+				cout << (tower2[i] == 0) ? "-" : to_string(tower2[i]);
 			} cout << "\n";
 
 			for (int i = 0; i < totalDisks; i++) {
-				cout << "Space " << i << " of tower 3: " << tower3[i] << " ";
+				cout << (tower3[i] == 0) ? "-" : to_string(tower3[i]);
 			} cout << "\n";
 
 			cout << "-- -- -- -- -- -- -- -- -- -- -- --" << "\n";
