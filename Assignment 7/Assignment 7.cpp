@@ -9,6 +9,17 @@ class HanoiTowers {
 		vector<int> tower2;
 		vector<int> tower3;
 
+		HanoiTowers(int totalDiskInit) {
+			totalDisks = totalDiskInit;
+			tower1.resize(totalDisks);
+			tower2.resize(totalDisks);
+			tower3.resize(totalDisks);
+
+			for (int i = 0; i < totalDisks; i++) {
+				tower1[i] = i + 1;
+			}
+		}
+
 		void printDisks() {
 			for (int i = 0; i < totalDisks; i++) {
 				cout << "Space " << i << " of tower 1: " << tower1[i] << " ";
@@ -21,9 +32,11 @@ class HanoiTowers {
 			for (int i = 0; i < totalDisks; i++) {
 				cout << "Space " << i << " of tower 3: " << tower3[i] << " ";
 			} cout << "\n";
+
+			cout << "-- -- -- -- -- -- -- -- -- -- -- --" << "\n";
 		}
 
-		void moveDisks(int thisDisk, vector<int> start, vector<int> goal, vector<int> extra) {
+		void moveDisks(int thisDisk, vector<int> &start, vector<int> &goal, vector<int> &extra) {
 			if (thisDisk == 0) {
 				// Move final disk to goal 
 				start[thisDisk] = 0;
@@ -44,23 +57,14 @@ class HanoiTowers {
 		}
 
 		void solve() {
+			printDisks();
 			moveDisks(totalDisks, tower1, tower3, tower2);
 		}
 };
 
 int main() {
-	const int totalDisks = 5;
-
-	HanoiTowers towers;
-	towers.totalDisks = totalDisks;
-	towers.tower1.resize(totalDisks);
-	towers.tower2.resize(totalDisks);
-	towers.tower3.resize(totalDisks);
-
-	for (int i = 0; i < totalDisks; i++) {
-		towers.tower1[i] = i + 1;
-	}
-
+	const int totalDisks = 3;
+	HanoiTowers towers = 3;
 	towers.solve();
 	system("pause");
 }
