@@ -36,14 +36,15 @@ class HanoiTowers {
 				goal.push_back(start.back());
 				start.pop_back();
 				printAllTowers();
-			} else {
-				// Move all but bottom disk to extra
+			}
+			else {
+				// Move all but bottom to extra
 				moveDisks(thisDisk - 1, start, extra, goal);
-				// After disks are moved to extra, move bottom to goal
+				// After moved to extra, move bottom to goal
 				goal.push_back(start.back());
 				start.pop_back();
 				printAllTowers();
-				// Move the stack on extra onto the new bottom
+				// Move the stack from extra onto bottom
 				moveDisks(thisDisk - 1, extra, goal, start);
 			}
 		}
