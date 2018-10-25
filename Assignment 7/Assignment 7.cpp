@@ -7,18 +7,30 @@ class HanoiTowers {
 	public:
 		int steps = 0;
 		int totalDisks;
-		vector<int> tower1;
-		vector<int> tower2;
-		vector<int> tower3;
+
+		class Tower {
+			public:
+				string name;
+				vector<int> disks;
+
+				Tower(string initName) {
+					name = initName;
+				}
+		};
+
+		Tower tower1 = string("Tower 1"); 
+		Tower tower2 = string("Tower 2");
+		Tower tower3 = string("Tower 3");
 
 		// Initialize using total disks
 		HanoiTowers(int totalDiskInit) {
 			totalDisks = totalDiskInit;
-			for (int i = 0; i < totalDisks; i++) { tower1.push_back(totalDisks - i); }
+			for (int i = 0; i < totalDisks; i++) { tower1.disks.push_back(totalDisks - i); }
 		}
 
-		void printTower(vector<int> &thisTower) {
-			for (int i = 0; i < totalDisks; i++) { cout << (i < thisTower.size() ? to_string(thisTower[i]) : "-") << " "; }
+		void printTower(Tower &thisTower) {
+			cout << thisTower.name << ": ";
+			for (int i = 0; i < totalDisks; i++) { cout << (i < thisTower.disks.size() ? to_string(thisTower.disks[i]) : "-") << " "; }
 			cout << "\n";
 		}
 
@@ -29,20 +41,22 @@ class HanoiTowers {
 			cout << "\n";
 		}
 
-		void moveDisks(int thisDisk, vector<int> &start, vector<int> &goal, vector<int> &extra) {
+		void moveDisks(int thisDisk, Tower &start, Tower &goal, Tower &extra) {
 			steps++;
 			if (thisDisk == 1) {
-				// Move final disk to goal 
-				goal.push_back(start.back());
-				start.pop_back();
+				// Move final disk to goal
+				cout << "Move disk " << start.disks.back() << " from " << start.name << " to " << goal.name << "\n";
+				goal.disks.push_back(start.disks.back());
+				start.disks.pop_back();
 				printAllTowers();
 			}
 			else {
 				// Move all but bottom to extra
 				moveDisks(thisDisk - 1, start, extra, goal);
 				// After moved to extra, move bottom to goal
-				goal.push_back(start.back());
-				start.pop_back();
+				cout << "Move disk " << start.disks.back() << " from " << start.name << " to " << goal.name << "\n";
+				goal.disks.push_back(start.disks.back());
+				start.disks.pop_back();
 				printAllTowers();
 				// Move the stack from extra onto bottom
 				moveDisks(thisDisk - 1, extra, goal, start);
@@ -52,7 +66,7 @@ class HanoiTowers {
 		void solve() {
 			cout << "\n";
 			printAllTowers();
-			moveDisks(totalDisks, tower1, tower3, tower2);
+			moveDisks(totalDisks, tower1, tower3, tower2); 
 			cout << "Solved in " << steps << " steps." << "\n\n";
 		}
 };
