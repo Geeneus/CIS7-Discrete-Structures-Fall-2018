@@ -75,7 +75,10 @@ int getIntInput() {
 	string s;
 	while (true) {
 		getline(cin, s);
-		try { return stoi(s); }
+		try { 
+			int i = stoi(s);
+			if (i >= 0) return stoi(s); 
+		}
 		catch (...) {}
 		cout << "Invalid input! Enter a positive integer: ";
 	}
